@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping
+@CrossOrigin(origins = {"http://127.0.0.1:5501"})
 public class UrlShorteningController {
 
     @Autowired
@@ -44,7 +45,7 @@ public class UrlShorteningController {
         }
         ErrorResponseDto errorResponseDto = new ErrorResponseDto();
         errorResponseDto.setStatus("404");
-        errorResponseDto.setStatus("There was an error processing your request. Please try again.");
+        errorResponseDto.setError("There was an error processing your request. Please try again.");
         return new ResponseEntity<ErrorResponseDto>(errorResponseDto, HttpStatus.OK);
 
     }
