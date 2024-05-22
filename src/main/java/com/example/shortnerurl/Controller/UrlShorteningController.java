@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping
@@ -82,6 +83,12 @@ public class UrlShorteningController {
         response.sendRedirect(urlToRet.getOriginalUrl());
 
         return null;
+    }
+
+    @GetMapping("/getall")
+    public List<Url> getAllUrl(){
+        List<Url> urlList= urlService.findAllByOrderByCreatedAtDesc();
+        return urlList;
     }
 
 }

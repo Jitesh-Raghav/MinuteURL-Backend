@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Component
 public class UrlServiceImpl implements UrlService{
@@ -77,5 +78,10 @@ public class UrlServiceImpl implements UrlService{
     @Override
     public void deleteShortLink(Url url) {
         urlRepo.delete(url);
+    }
+
+    @Override
+    public List<Url> findAllByOrderByCreatedAtDesc(){
+        return urlRepo.findAll();
     }
 }
