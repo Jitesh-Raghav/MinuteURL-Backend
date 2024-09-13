@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins = {"http://127.0.0.1:5501"})
+@CrossOrigin(origins = {"https://minute-url.vercel.app/"})
 public class UrlShorteningController {
 
     @Autowired
